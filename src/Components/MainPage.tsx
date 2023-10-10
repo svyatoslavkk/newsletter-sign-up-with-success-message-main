@@ -3,6 +3,7 @@ import illustrationSignUpMobile from '../illustration-sign-up-mobile.svg';
 import illustrationSignUpDesktop from '../illustration-sign-up-desktop.svg'
 import { listArray } from "../Data/listArray";
 import { validateEmail } from "../Functions/validateEmail";
+import ListBlock from "./ListBlock";
 
 export default function MainPage ({ onSubscribe }: any) {
     const [email, setEmail] = useState("");
@@ -38,21 +39,14 @@ export default function MainPage ({ onSubscribe }: any) {
             <div className='content'>
                 <h1 className='title'>Stay updated!</h1>
                 <p className='main-desc'>Join 60,000+ product managers receiving monthly updates on:</p>
-                <div className="list-block">
-                    {listArray.map((item: any) => (
-                    <div className='list'>
-                        <img src={item.icon} className='icon-list' alt="Icon List" />
-                        <p className='list-item'>{item.description}</p>
-                    </div>
-                    ))}
-                </div>
+                <ListBlock />
                 <div className="input-header">
                     <h4 className='email-title'>Email address</h4> 
                     {isButtonClicked ? (
-                        <p className={`error-message ${isEmptyEmail || !isValidEmail ? "invalid" : isEmptyEmail
-                        ? "empty"
-                        : ""}`}>Valid email required</p>
-                        ) : null}
+                    <p className={`error-message ${isEmptyEmail || !isValidEmail ? "invalid" : isEmptyEmail
+                    ? "empty"
+                    : ""}`}>Valid email required</p>
+                    ) : null} 
                 </div>
                 <input 
                     className={`email-input ${
