@@ -27,6 +27,7 @@ p {
     top: 0%;
     left: 50%;
     transform: translate(-50%, 0%);
+    width: 100%;
     max-width: 375px;
 }
 
@@ -36,10 +37,16 @@ p {
 
 .content {
     padding: 0 1.5rem;
-    // max-width: 375px;
-    // width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.illustration-mobile{
+    max-width: 375px;
+    max-height: 285px;
+    width: 100%;
+    height: 100vh;
 }
 
 .title {
@@ -48,11 +55,6 @@ p {
 
 .main-desc {
     margin-bottom: 1.5rem;
-}
-
-.illustration-mobile {
-    max-width: 375px;
-    width: 100%;
 }
 
 .list {
@@ -161,6 +163,10 @@ p {
 @media (max-width: 929px) {
     .illustration-desktop {
         display: none;
+    }
+    .content {
+        max-width: 375px;
+        width: 100%;
     }
 }
 
