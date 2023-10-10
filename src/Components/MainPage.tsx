@@ -1,33 +1,14 @@
 import React, { useState } from "react";
 import illustrationSignUpMobile from '../illustration-sign-up-mobile.svg';
 import illustrationSignUpDesktop from '../illustration-sign-up-desktop.svg'
-import iconList from '../icon-list.svg';
+import { listArray } from "../Data/listArray";
+import { validateEmail } from "../Functions/validateEmail";
 
 export default function MainPage ({ onSubscribe }: any) {
     const [email, setEmail] = useState("");
     const [isValidEmail, setIsValidEmail] = useState(false);
     const [isEmptyEmail, setIsEmptyEmail] = useState(false);
     const [isButtonClicked, setIsButtonClicked] = useState(false);
-
-    const listArray = [
-        {
-        icon: iconList,
-        description: 'Product discovery and building what matters',
-        },
-        {
-        icon: iconList,
-        description: 'Measuring to ensure updates are a success',
-        },
-        {
-        icon: iconList,
-        description: 'And much more!',
-        },
-    ]
-
-    const validateEmail = (email: string) => {
-        const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
-        return pattern.test(email);
-    }
 
     const handleEmailChange = (e: any) => {
         const newEmail = e.target.value;
@@ -50,7 +31,6 @@ export default function MainPage ({ onSubscribe }: any) {
             onSubscribe();
         }
     };
-    
 
     return (
         <div className='container'>
@@ -67,7 +47,7 @@ export default function MainPage ({ onSubscribe }: any) {
                     ))}
                 </div>
                 <div className="input-header">
-                    <h4 className='email-title'>Email address</h4>
+                    <h4 className='email-title'>Email address</h4> 
                     {isButtonClicked ? (
                         <p className={`error-message ${isEmptyEmail || !isValidEmail ? "invalid" : isEmptyEmail
                         ? "empty"
